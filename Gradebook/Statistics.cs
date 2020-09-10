@@ -14,7 +14,7 @@ namespace Gradebook
 
         public double lowval { get; set; }
 
-        // public List<string> ListofTop3 { get; set; }
+        public string pos1_student { get; set; }
 
         public Statistics()
         {

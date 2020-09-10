@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using NUnit.Framework;
 using GradeBook;
-using NUnit.Framework;
+using System;
 
 namespace Gradebook.Tests
 { 

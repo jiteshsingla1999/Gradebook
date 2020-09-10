@@ -20,7 +20,9 @@ namespace GradeBook
         /// </summary>
         public int count { get; set; }
 
-
+        /// <summary>
+        /// Stats variable to store statistical information
+        /// </summary>
         private Statistics stats { get; set; }
 
 
@@ -33,6 +35,11 @@ namespace GradeBook
         }
         public void add(string studentName, double score)
         {
+            if (Math.Round(score) > findMax())
+            {
+                stats.pos1_student = studentName;
+            }
+
             grades.Add(new KeyValuePair<string, double>(studentName, Math.Round(score,2)));
             count += 1;
             updateStats();
@@ -87,10 +94,13 @@ namespace GradeBook
                 Console.WriteLine("Record List is empty");
                 return;
             }
+                    
 
             stats.avg = findAVG();
             stats.highval = findMax();
             stats.lowval = findMin();
+
+
 
         }
 
@@ -105,6 +115,7 @@ namespace GradeBook
             Console.WriteLine($"Class Avergae: {stats.avg}");
             Console.WriteLine($"Highest marks in class: {stats.highval}");
             Console.WriteLine($"Lowest marks in class: {stats.lowval}");
+            Console.WriteLine($"Class Topper: {stats.pos1_student}");
 
             return;
         }

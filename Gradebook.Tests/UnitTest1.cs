@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using GradeBook;
+using System;
 
 namespace Gradebook.Tests
 {
@@ -39,6 +40,18 @@ namespace Gradebook.Tests
 
             Assert.AreEqual(expectedCount, actualCount);
         }
+        [Test]
+        public void Test_to_checkMaxcomputation()
+        {
+            var testbook = new Book();
+            testbook.add("1618", 99.999);
+            testbook.add("1583", 99.99);
+            testbook.add("1585", 49.99);
+            double actualmax = testbook.findMax();
 
+            double expectedmax = Math.Round(99.999,2);
+
+            Assert.AreEqual(expectedmax, actualmax, 0.001);
+        }
     }
 }

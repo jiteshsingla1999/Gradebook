@@ -21,22 +21,29 @@ namespace GradeBook
         private int count;
 
 
+        private Statistics stats { get; set; }
+
+
         public Book(string name = "SampleCourse")
         {
             this.CourseName = name;
             grades = new List<KeyValuePair<string, double>>();
             count = 0;
+            stats = new Statistics();
         }
         public void add(string studentName, double score)
         {
-            grades.Add(new KeyValuePair<string, double>(studentName, score));
+            grades.Add(new KeyValuePair<string, double>(studentName, Math.Round(score,2)));
             count += 1;
+            updateStats();
+
+            return;
         }
 
         private double findSum()
         {
             double sum = 0;
-            foreach(var i in grades)
+            foreach (var i in grades)
             {
                 sum += i.Value;
             }
@@ -46,21 +53,62 @@ namespace GradeBook
 
         public double findAVG()
         {
-            return findSum() / count;
+            return Math.Round(findSum() / count, 2);
         }
 
-        public Statistics ShowStats()
+        public double findMin()
         {
-            var result = new Statistics();
-            result.lowval = lowestGrade;
-            result.highval = highestGrade;
-            result.avg = findAVG();
-            System.Console.WriteLine($"The Lowest Grade is {lowestGrade}");
-            System.Console.WriteLine($"The Highers Grade is {highestGrade}");
+            double minn = 101;
 
-            System.Console.WriteLine($"The Average Grade is {result.avg:N1}");
-            return result;
+            foreach(var i in grades)
+            {
+                minn = Math.Min(minn, i.Value);
+            }
+
+            return minn;
         }
+
+        public double findMax()
+        {
+            double maxx = -1;
+
+            foreach (var i in grades)
+            {
+                maxx = Math.Max(maxx, i.Value);
+            }
+
+            return maxx;
+        }
+
+        public void updateStats()
+        {
+            if (count == 0)
+            {
+                Console.WriteLine("Record List is empty");
+                return;
+            }
+
+            stats.avg = findAVG();
+            stats.highval = findMax();
+            stats.lowval = findMin();
+
+        }
+
+        public void DisplayStats()
+        {
+            Console.WriteLine($"Course Name: {CourseName}");
+            Console.WriteLine($"Number of students enrolled: {count}");
+
+            if (count == 0)
+                return;
+
+            Console.WriteLine($"Class Avergae: {stats.avg}");
+            Console.WriteLine($"Highest marks in class: {stats.highval}");
+            Console.WriteLine($"Lowest marks in class: {stats.lowval}");
+
+            return;
+        }
+        
     }
 }
 

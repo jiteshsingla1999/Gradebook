@@ -9,11 +9,11 @@ namespace Gradebook
         {
             Console.WriteLine("Welcome to Gradebook");
             Book gradebook = new Book();
-            gradebook.add(12.3);
-            gradebook.add(23.43);
-            gradebook.add(34.4);
+            gradebook.add("1618", 12.3);
+            gradebook.add("1583", 23.43);
+            gradebook.add("1585", 34.4);
+            gradebook.DisplayStats();
 
-            Console.WriteLine(gradebook.findAVG());
         }
     }
 }

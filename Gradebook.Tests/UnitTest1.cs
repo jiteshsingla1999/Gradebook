@@ -4,7 +4,7 @@ using System;
 
 namespace Gradebook.Tests
 {
-    public class Tests
+    public partial class Tests
     {
         [SetUp]
         public void Setup()

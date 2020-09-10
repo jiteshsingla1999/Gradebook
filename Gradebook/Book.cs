@@ -18,7 +18,7 @@ namespace GradeBook
         /// <summary>
         /// Number of students in the class
         /// </summary>
-        private int count;
+        public int count { get; set; }
 
 
         private Statistics stats { get; set; }

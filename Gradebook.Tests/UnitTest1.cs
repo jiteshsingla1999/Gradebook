@@ -12,6 +12,9 @@ namespace Gradebook.Tests
            
         }
 
+        /// <summary>
+        /// Test to check Average Function
+        /// </summary>
         [Test]
         public void Test_to_checkAVGcomputation()
         {
@@ -26,6 +29,9 @@ namespace Gradebook.Tests
             Assert.AreEqual(expectedAVG, actualAVG, 0.01);
         }
 
+        /// <summary>
+        /// Test to check count variable
+        /// </summary>
         [Test]
         public void Test_to_checkStudentCount()
         {
@@ -40,6 +46,10 @@ namespace Gradebook.Tests
 
             Assert.AreEqual(expectedCount, actualCount);
         }
+
+        /// <summary>
+        /// Test to check max computation function
+        /// </summary>
         [Test]
         public void Test_to_checkMaxcomputation()
         {

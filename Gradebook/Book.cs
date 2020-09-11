@@ -25,7 +25,10 @@ namespace GradeBook
         /// </summary>
         private Statistics stats { get; set; }
 
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="name"></param>
         public Book(string name = "SampleCourse")
         {
             this.CourseName = name;
@@ -33,6 +36,12 @@ namespace GradeBook
             count = 0;
             stats = new Statistics();
         }
+
+        /// <summary>
+        /// Function to add score to the list
+        /// </summary>
+        /// <param name="studentName"></param>
+        /// <param name="score"></param>
         public void add(string studentName, double score)
         {
             if (Math.Round(score) > findMax())
@@ -47,6 +56,10 @@ namespace GradeBook
             return;
         }
 
+        /// <summary>
+        /// Function to find sum of marks in the list
+        /// </summary>
+        /// <returns></returns>
         private double findSum()
         {
             double sum = 0;
@@ -58,11 +71,19 @@ namespace GradeBook
             return sum;
         }
 
+        /// <summary>
+        /// Function to find average marks in the list
+        /// </summary>
+        /// <returns></returns>
         public double findAVG()
         {
             return Math.Round(findSum() / count, 2);
         }
 
+        /// <summary>
+        /// Function to find minimum marks in the list
+        /// </summary>
+        /// <returns></returns>
         public double findMin()
         {
             double minn = 101;
@@ -75,6 +96,10 @@ namespace GradeBook
             return minn;
         }
 
+        /// <summary>
+        /// Function to find maximum marks in the list
+        /// </summary>
+        /// <returns></returns>
         public double findMax()
         {
             double maxx = -1;
@@ -87,6 +112,9 @@ namespace GradeBook
             return maxx;
         }
 
+        /// <summary>
+        /// Function to update the statistics 
+        /// </summary>
         public void updateStats()
         {
             if (count == 0)
@@ -104,6 +132,9 @@ namespace GradeBook
 
         }
 
+        /// <summary>
+        /// Function to display statistics in the list
+        /// </summary>
         public void DisplayStats()
         {
             Console.WriteLine($"Course Name: {CourseName}");

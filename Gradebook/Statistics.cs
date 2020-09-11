@@ -8,14 +8,29 @@ namespace Gradebook
 {
     public class Statistics
     {
+        /// <summary>
+        /// average marks in class
+        /// </summary>
         public double avg { get; set; }
 
+        /// <summary>
+        /// highest marks in class
+        /// </summary>
         public double highval { get; set; }
 
+        /// <summary>
+        /// lowest marks in class
+        /// </summary>
         public double lowval { get; set; }
 
+        /// <summary>
+        /// Name of student with highest marks
+        /// </summary>
         public string pos1_student { get; set; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Statistics()
         {
             avg = 0;

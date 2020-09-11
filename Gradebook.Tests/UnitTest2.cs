@@ -6,6 +6,9 @@ namespace Gradebook.Tests
 { 
     public partial class Tests
     {
+        /// <summary>
+        /// Test to check min computation function
+        /// </summary>
         [Test]
         public void Test_to_checkMincomputation()
         {

@@ -13,7 +13,7 @@ namespace GradeBook
         /// <summary>
         /// Key Value Pair<Student Name, Score> </Student>
         /// </summary>
-        private List<KeyValuePair<string, double> > grades { get; set; }
+        private List<KeyValuePair<string, Marks> > grades { get; set; }
 
         /// <summary>
         /// Number of students in the class
@@ -32,7 +32,7 @@ namespace GradeBook
         public Book(string name = "SampleCourse")
         {
             this.CourseName = name;
-            grades = new List<KeyValuePair<string, double>>();
+            grades = new List<KeyValuePair<string, Marks>>();
             count = 0;
             stats = new Statistics();
         }
@@ -42,14 +42,15 @@ namespace GradeBook
         /// </summary>
         /// <param name="studentName"></param>
         /// <param name="score"></param>
-        public void add(string studentName, double score)
+        public void add(string studentName, int internalAssmt=0, int midAssmt=0, int endAssmt=0 )
         {
-            if (Math.Round(score) > findMax())
+            Marks score = new Marks(internalAssmt, midAssmt, endAssmt);
+            if (Math.Round(score.getaggregatemarks()) > findMax())
             {
                 stats.pos1_student = studentName;
             }
 
-            grades.Add(new KeyValuePair<string, double>(studentName, Math.Round(score,2)));
+            grades.Add(new KeyValuePair<string, Marks>(studentName, score));
             count += 1;
             updateStats();
 
@@ -65,7 +66,7 @@ namespace GradeBook
             double sum = 0;
             foreach (var i in grades)
             {
-                sum += i.Value;
+                sum += i.Value.getaggregatemarks();
             }
 
             return sum;
@@ -90,7 +91,7 @@ namespace GradeBook
 
             foreach(var i in grades)
             {
-                minn = Math.Min(minn, i.Value);
+                minn = Math.Min(minn, i.Value.getaggregatemarks());
             }
 
             return minn;
@@ -106,7 +107,7 @@ namespace GradeBook
 
             foreach (var i in grades)
             {
-                maxx = Math.Max(maxx, i.Value);
+                maxx = Math.Max(maxx, i.Value.getaggregatemarks());
             }
 
             return maxx;
@@ -137,18 +138,43 @@ namespace GradeBook
         /// </summary>
         public void DisplayStats()
         {
-            Console.WriteLine($"Course Name: {CourseName}");
-            Console.WriteLine($"Number of students enrolled: {count}");
+            Console.Write($"Course Name:".PadRight(30));
+            Console.WriteLine($"{CourseName}".PadRight(20));
+
+            Console.Write($"Number of students enrolled:".PadRight(30));
+            Console.WriteLine($"{count}".PadRight(20));
 
             if (count == 0)
                 return;
 
-            Console.WriteLine($"Class Avergae: {stats.avg}");
-            Console.WriteLine($"Highest marks in class: {stats.highval}");
-            Console.WriteLine($"Lowest marks in class: {stats.lowval}");
-            Console.WriteLine($"Class Topper: {stats.pos1_student}");
+            Console.Write($"Class Avergae".PadRight(30));
+            Console.WriteLine($"{stats.avg}".PadRight(20));
+            Console.Write($"Highest marks in class:".PadRight(30));
+            Console.WriteLine($"{stats.highval}".PadRight(20));
+            Console.Write($"Lowest marks in class:".PadRight(30));
+            Console.WriteLine($"{stats.lowval}".PadRight(20));
+            Console.Write($"Class Topper:".PadRight(30));
+            Console.WriteLine($"{stats.pos1_student}".PadRight(20));
+
 
             return;
+        }
+
+        public void DisplayGrads()
+        {
+            Console.Write($"Student Name".PadRight(30));
+            Console.Write($"Total Marks".PadRight(30));
+            Console.WriteLine($"Grade".PadRight(20));
+            
+            foreach(var i in grades)
+            {
+                Console.Write($"{i.Key}".PadRight(30));
+                Console.Write($"{i.Value.getaggregatemarks()}".PadRight(30));
+                Console.WriteLine($"{i.Value.getGrade()}".PadRight(20));
+
+            }
+
+
         }
         
     }

@@ -19,9 +19,9 @@ namespace Gradebook.Tests
         public void Test_to_checkAVGcomputation()
         {
             var testbook = new Book();
-            testbook.add("1618", 99.999);
-            testbook.add("1583", 99.99);
-            testbook.add("1585", 49.99);
+            testbook.add("1618", 25, 25, 50);
+            testbook.add("1583", 25, 24, 50);
+            testbook.add("1585", 24, 24, 50);
             double actualAVG = testbook.findAVG();
 
             double expectedAVG = (99.999 + 99.99 + 49.99) / 3;
@@ -36,9 +36,9 @@ namespace Gradebook.Tests
         public void Test_to_checkStudentCount()
         {
             var testbook = new Book();
-            testbook.add("1618", 99.999);
-            testbook.add("1583", 99.99);
-            testbook.add("1585", 49.99);
+            testbook.add("1618", 25, 25, 50);
+            testbook.add("1583", 25, 24, 50);
+            testbook.add("1585", 24, 24, 50);
 
             double actualCount = testbook.count;
 
@@ -54,9 +54,9 @@ namespace Gradebook.Tests
         public void Test_to_checkMaxcomputation()
         {
             var testbook = new Book();
-            testbook.add("1618", 99.999);
-            testbook.add("1583", 99.99);
-            testbook.add("1585", 49.99);
+            testbook.add("1618", 25, 25, 50);
+            testbook.add("1583", 25, 24, 50);
+            testbook.add("1585", 24, 24, 50);
             double actualmax = testbook.findMax();
 
             double expectedmax = Math.Round(99.999,2);

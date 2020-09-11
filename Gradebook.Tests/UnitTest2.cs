@@ -13,9 +13,9 @@ namespace Gradebook.Tests
         public void Test_to_checkMincomputation()
         {
             var testbook = new Book();
-            testbook.add("1618", 99.999);
-            testbook.add("1583", 99.99);
-            testbook.add("1585", 49.99);
+            testbook.add("1618", 25, 25, 50);
+            testbook.add("1583", 25, 24, 50);
+            testbook.add("1585", 24, 24, 50);
             double actualmin = testbook.findMin();
 
             double expectedmin = Math.Round(49.99, 2);

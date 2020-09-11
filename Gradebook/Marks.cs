@@ -21,7 +21,9 @@ namespace Gradebook
         /// Marks obtained from the End Semester Assessment [0,50]
         /// </summary>
         double endSemester;
-        
+
+        public static Dictionary<int, string> gradeGuide = new Dictionary<int, string>();
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -42,6 +44,45 @@ namespace Gradebook
                 throw new Exception("Marks for Mid Semester Assessment can be between [0, 25] only");
             this.midSemester = b;
 
+            createDict();
+
+            
+        }
+
+        public static void createDict()
+        {
+            if (!gradeGuide.ContainsKey(10))
+                gradeGuide.Add(10, "Outstanding");
+            else
+                return;
+
+            if (!gradeGuide.ContainsKey(9))
+                gradeGuide.Add(9, "Exceeds Expectation");
+
+            if (!gradeGuide.ContainsKey(8))
+                gradeGuide.Add(8, "Acceptable");
+
+            if (!gradeGuide.ContainsKey(7))
+                gradeGuide.Add(7, "Acceptable");
+
+            if (!gradeGuide.ContainsKey(6))
+                gradeGuide.Add(6, "Poor");
+
+            if (!gradeGuide.ContainsKey(5))
+                gradeGuide.Add(5, "Poor");
+
+            if (!gradeGuide.ContainsKey(4))
+                gradeGuide.Add(4, "Dreadful");
+
+            if (!gradeGuide.ContainsKey(3))
+                gradeGuide.Add(3, "Troll");
+
+            if (!gradeGuide.ContainsKey(2))
+                gradeGuide.Add(2, "Troll");
+
+            if (!gradeGuide.ContainsKey(1))
+                gradeGuide.Add(1, "Troll");
+
         }
 
         /// <summary>
@@ -58,55 +99,11 @@ namespace Gradebook
 
         /// <summary>
         /// Function to return grade
-        /// [90-100] -> O
-        /// [80-90) -> A+
-        /// [70-80) -> A
-        /// [60-70) -> B+
-        /// [50-60) -> B
-        /// [40-50) -> C+
-        /// [30-40) -> C
-        /// (<30)   -> T
         /// </summary>
         /// <returns></returns>
         public string getGrade()
         {
-            switch ((this.getaggregatemarks() / 10))
-            {
-                case 9:
-                    {
-                        return "O";
-                    }
-                case 8:
-                    {
-                        return "A+";
-                    }
-                case 7:
-                    {
-                        return "A";
-                    }
-                case 6:
-                    {
-                        return "B+";
-                    }
-                case 5:
-                    {
-                        return "B";
-                    }
-                case 4:
-                    {
-                        return "C+";
-                    }
-                case 3:
-                    {
-                        return "C";
-                    }
-                default:
-                    {
-                        return "T";
-                    }
-
-            }
-
+            return gradeGuide[(int)(this.getaggregatemarks()) / 10];
         }
     }
 }

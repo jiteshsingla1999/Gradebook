@@ -18,7 +18,7 @@ namespace Gradebook.Tests
             testbook.add("1585", 24, 24, 50);
             double actualmin = testbook.findMin();
 
-            double expectedmin = Math.Round(49.99, 2);
+            double expectedmin = Math.Round(98.0, 2);
 
             Assert.AreEqual(expectedmin, actualmin, 0.001);
         }

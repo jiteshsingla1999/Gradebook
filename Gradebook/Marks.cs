@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using GradeBook;
 
 namespace Gradebook
@@ -22,8 +20,6 @@ namespace Gradebook
         /// </summary>
         double endSemester;
 
-        public static Dictionary<int, string> gradeGuide = new Dictionary<int, string>();
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -42,48 +38,10 @@ namespace Gradebook
 
             if (b > 25 || b < 0)
                 throw new Exception("Marks for Mid Semester Assessment can be between [0, 25] only");
-            this.midSemester = b;
-
-            createDict();
-
-            
+            this.midSemester = b;            
         }
 
-        public static void createDict()
-        {
-            if (!gradeGuide.ContainsKey(10))
-                gradeGuide.Add(10, "Outstanding");
-            else
-                return;
-
-            if (!gradeGuide.ContainsKey(9))
-                gradeGuide.Add(9, "Exceeds Expectation");
-
-            if (!gradeGuide.ContainsKey(8))
-                gradeGuide.Add(8, "Acceptable");
-
-            if (!gradeGuide.ContainsKey(7))
-                gradeGuide.Add(7, "Acceptable");
-
-            if (!gradeGuide.ContainsKey(6))
-                gradeGuide.Add(6, "Poor");
-
-            if (!gradeGuide.ContainsKey(5))
-                gradeGuide.Add(5, "Poor");
-
-            if (!gradeGuide.ContainsKey(4))
-                gradeGuide.Add(4, "Dreadful");
-
-            if (!gradeGuide.ContainsKey(3))
-                gradeGuide.Add(3, "Troll");
-
-            if (!gradeGuide.ContainsKey(2))
-                gradeGuide.Add(2, "Troll");
-
-            if (!gradeGuide.ContainsKey(1))
-                gradeGuide.Add(1, "Troll");
-
-        }
+        
 
         /// <summary>
         /// Function to get aggregate marks out of 100
@@ -96,14 +54,13 @@ namespace Gradebook
 
             return internalAssessment + midSemester + endSemester;
         }
-
         /// <summary>
         /// Function to return grade
         /// </summary>
         /// <returns></returns>
         public string getGrade()
         {
-            return gradeGuide[(int)(this.getaggregatemarks()) / 10];
+            return Book.gradeGuide[(int)(this.getaggregatemarks()) / 10];
         }
     }
 }

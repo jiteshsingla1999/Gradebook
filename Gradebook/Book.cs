@@ -21,6 +21,26 @@ namespace GradeBook
         public int count { get; set; }
 
         /// <summary>
+        /// Laying down the Grade Scheme for the Course
+        /// </summary>
+        public static Dictionary<int, string> gradeGuide { get; set; }
+        public static void createDict()
+        {
+            gradeGuide =new Dictionary<int, string>();
+            
+            gradeGuide.Add(10, "Outstanding");
+            gradeGuide.Add(9, "Exceeds Expectation");
+            gradeGuide.Add(8, "Acceptable");
+            gradeGuide.Add(7, "Acceptable");
+            gradeGuide.Add(6, "Poor");
+            gradeGuide.Add(5, "Poor");
+            gradeGuide.Add(4, "Dreadful");
+            gradeGuide.Add(3, "Troll");
+            gradeGuide.Add(2, "Troll");
+            gradeGuide.Add(1, "Troll");
+            gradeGuide.Add(0, "Troll");
+        }
+        /// <summary>
         /// Stats variable to store statistical information
         /// </summary>
         private Statistics stats { get; set; }
@@ -35,6 +55,7 @@ namespace GradeBook
             grades = new List<KeyValuePair<string, Marks>>();
             count = 0;
             stats = new Statistics();
+            createDict();
         }
 
         /// <summary>
@@ -42,18 +63,30 @@ namespace GradeBook
         /// </summary>
         /// <param name="studentName"></param>
         /// <param name="score"></param>
-        public void add(string studentName, int internalAssmt=0, int midAssmt=0, int endAssmt=0 )
+        public void add(string studentID, int internalAssmt=0, int midAssmt=0, int endAssmt=0 )
         {
+            ///Integrity check for Student ID
+            if(studentID.Length !=11)
+                throw new Exception("Please enter a valid Student ID");
+            if(studentID[4]!='U')
+                throw new Exception("Course only for Undergraduate");
+            string branch = studentID.Substring(5,2);
+            if(branch!="CO")
+                throw new Exception("Course only for Computer Science Students");
+            string rollnum = studentID.Substring(7,4);
+            int val= Int16.Parse(rollnum);
+            if(val<1500 || val>1700)
+                throw new Exception("Wrong Range of Roll Number for Computer Science Students");
+            
             Marks score = new Marks(internalAssmt, midAssmt, endAssmt);
             if (Math.Round(score.getaggregatemarks()) > findMax())
             {
-                stats.pos1_student = studentName;
+                stats.pos1_student = studentID;
             }
 
-            grades.Add(new KeyValuePair<string, Marks>(studentName, score));
+            grades.Add(new KeyValuePair<string, Marks>(studentID, score));
             count += 1;
             updateStats();
-
             return;
         }
 
@@ -61,7 +94,7 @@ namespace GradeBook
         /// Function to find sum of marks in the list
         /// </summary>
         /// <returns></returns>
-        private double findSum()
+        public double findSum()
         {
             double sum = 0;
             foreach (var i in grades)
@@ -124,13 +157,9 @@ namespace GradeBook
                 return;
             }
                     
-
             stats.avg = findAVG();
             stats.highval = findMax();
             stats.lowval = findMin();
-
-
-
         }
 
         /// <summary>
@@ -156,13 +185,12 @@ namespace GradeBook
             Console.Write($"Class Topper:".PadRight(30));
             Console.WriteLine($"{stats.pos1_student}".PadRight(20));
 
-
             return;
         }
 
         public void DisplayGrads()
         {
-            Console.Write($"Student Name".PadRight(30));
+            Console.Write($"Student ID".PadRight(30));
             Console.Write($"Total Marks".PadRight(30));
             Console.WriteLine($"Grade".PadRight(20));
             
@@ -171,10 +199,7 @@ namespace GradeBook
                 Console.Write($"{i.Key}".PadRight(30));
                 Console.Write($"{i.Value.getaggregatemarks()}".PadRight(30));
                 Console.WriteLine($"{i.Value.getGrade()}".PadRight(20));
-
             }
-
-
         }
         
     }

@@ -4,7 +4,8 @@ using System;
 
 namespace Gradebook.Tests
 { 
-    public partial class Tests
+    [TestFixture]
+    public class Sample_Tests_2
     {
         /// <summary>
         /// Test to check min computation function

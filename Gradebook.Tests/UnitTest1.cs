@@ -4,7 +4,8 @@ using System;
 
 namespace Gradebook.Tests
 {
-    public partial class Tests
+    [TestFixture]
+    public class Sample_Tests_1
     {
         [SetUp]
         public void Setup()

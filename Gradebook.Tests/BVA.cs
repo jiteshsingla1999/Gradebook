@@ -6,7 +6,8 @@ using GradeBook;
 
 namespace Gradebook.Tests
 {
-    public partial class Tests
+    [TestFixture]
+    public class BVA_Tests
     {
         [Test]
         public void Test_RollNoMinminus()

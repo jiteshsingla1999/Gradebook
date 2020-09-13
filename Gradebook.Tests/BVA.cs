@@ -6,6 +6,9 @@ using GradeBook;
 
 namespace Gradebook.Tests
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [TestFixture]
     public class BVA_Tests
     {

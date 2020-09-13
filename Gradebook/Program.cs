@@ -15,7 +15,6 @@ namespace Gradebook
 
             gradebook.DisplayStats();
             gradebook.DisplayGrads();
-     
 
         }
     }

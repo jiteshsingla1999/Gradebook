@@ -68,22 +68,23 @@ namespace GradeBook
             ///Integrity check for Student ID
             if(studentID.Length !=11)
                 throw new Exception("Please enter a valid Student ID");
+            string year = studentID.Substring(0, 4);
+            int val = Int16.Parse(year);
+            if(val!=2017)
+                throw new Exception("Course only for 4th Years");
             if(studentID[4]!='U')
                 throw new Exception("Course only for Undergraduate");
             string branch = studentID.Substring(5,2);
             if(branch!="CO")
                 throw new Exception("Course only for Computer Science Students");
             string rollnum = studentID.Substring(7,4);
-            int val= Int16.Parse(rollnum);
+            val= Int16.Parse(rollnum);
             if(val<1500 || val>1700)
                 throw new Exception("Wrong Range of Roll Number for Computer Science Students");
             
             Marks score = new Marks(internalAssmt, midAssmt, endAssmt);
             if (Math.Round(score.getaggregatemarks()) > findMax())
-            {
                 stats.pos1_student = studentID;
-            }
-
             grades.Add(new KeyValuePair<string, Marks>(studentID, score));
             count += 1;
             updateStats();
@@ -204,4 +205,3 @@ namespace GradeBook
         
     }
 }
-

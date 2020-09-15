@@ -7,7 +7,10 @@ using GradeBook;
 namespace Gradebook.Tests
 {
     /// <summary>
-    /// 
+    /// Test class containing Boundary Value Test Cases
+    /// We have used Robust Boundary Value Checking. 
+    /// Number of variables = 4 [StudentID, InternalAssessmentMarks, MidSemMarks, EndSemMarks]
+    /// Hence, using this technique, 25 (6*4 + 1) test cases have been added
     /// </summary>
     [TestFixture]
     public class BVA_Tests

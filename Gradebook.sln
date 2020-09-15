@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gradebook", "Gradebook\Gradebook.csproj", "{3E3A6619-D35D-4101-B059-DDA77CDE9AA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gradebook", "Gradebook\Gradebook.csproj", "{3E3A6619-D35D-4101-B059-DDA77CDE9AA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gradebook.Tests", "Gradebook.Tests\Gradebook.Tests.csproj", "{28BED6F1-F8A3-4651-8429-9F9F67422CB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gradebook.Tests", "Gradebook.Tests\Gradebook.Tests.csproj", "{28BED6F1-F8A3-4651-8429-9F9F67422CB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedTest", "AutomatedTest\AutomatedTest.csproj", "{723B0353-EE4B-4ED6-9351-BC85E06C10C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{28BED6F1-F8A3-4651-8429-9F9F67422CB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28BED6F1-F8A3-4651-8429-9F9F67422CB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28BED6F1-F8A3-4651-8429-9F9F67422CB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{723B0353-EE4B-4ED6-9351-BC85E06C10C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{723B0353-EE4B-4ED6-9351-BC85E06C10C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{723B0353-EE4B-4ED6-9351-BC85E06C10C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{723B0353-EE4B-4ED6-9351-BC85E06C10C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

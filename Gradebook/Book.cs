@@ -177,7 +177,7 @@ namespace GradeBook
             if (count == 0)
                 return;
 
-            Console.Write($"Class Avergae".PadRight(30));
+            Console.Write($"Class Average".PadRight(30));
             Console.WriteLine($"{stats.avg}".PadRight(20));
             Console.Write($"Highest marks in class:".PadRight(30));
             Console.WriteLine($"{stats.highval}".PadRight(20));

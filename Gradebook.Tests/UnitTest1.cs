@@ -29,7 +29,8 @@ namespace Gradebook.Tests
 
                 double expectedAVG = Math.Round((100.00 + 99 + 98) / 3, 2);
 
-                Assert.AreEqual(expectedAVG, actualAVG, 0.01);
+                Assert.That(actualAVG, Is.EqualTo(expectedAVG).Within(0.01));
+
             }
             catch
             {
@@ -55,7 +56,7 @@ namespace Gradebook.Tests
 
                 double expectedCount = 3;
 
-                Assert.AreEqual(expectedCount, actualCount);
+                Assert.That(actualCount, Is.EqualTo(expectedCount).Within(0.01));
             }
             catch
             {
@@ -79,7 +80,7 @@ namespace Gradebook.Tests
 
                 double expectedmax = Math.Round(100.000, 2);
 
-                Assert.AreEqual(expectedmax, actualmax, 0.001);
+                Assert.That(actualmax, Is.EqualTo(expectedmax).Within(0.01));
             }
             catch
             {
@@ -91,6 +92,7 @@ namespace Gradebook.Tests
         [Test]
         public void Test_to_checkAddFunctionForInvalidMarks()
         {
+
             try
             {
                 var testbook = new Book();

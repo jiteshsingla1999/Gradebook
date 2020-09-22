@@ -8,14 +8,23 @@ namespace Gradebook.Tests
     /// 
     /// </summary>
     [TestFixture]
+    [Category("Equivalence Paritition Testing")]
     public class Equivalence_Partitioning_Tests
     {
+        private Book testbook;
+
+        [SetUp]
+        public void Setup()
+        {
+            // Runs before each test executes
+            testbook = new Book();
+        }
+
         [Test]
         public void Test_InternalMinus()
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", -2, 20, 45);
             }
             catch
@@ -29,7 +38,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 85.00;
@@ -46,7 +54,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 30, 20, 45);
             }
             catch
@@ -60,7 +67,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, -10, 45);
             }
             catch
@@ -74,7 +80,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 85.00;
@@ -91,7 +96,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 30, 45);
             }
             catch
@@ -105,7 +109,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20, -20);
             }
             catch
@@ -119,7 +122,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 85.00;
@@ -136,7 +138,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20, 65);
             }
             catch
@@ -150,7 +151,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("201UCO1618", 20, 20, 45);
             }
             catch
@@ -164,7 +164,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2012UCO1618", 20, 20, 45);
             }
             catch
@@ -178,7 +177,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017PCO1618", 20, 20, 45);
             }
             catch
@@ -192,7 +190,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UBT1618", 20, 20, 45);
             }
             catch
@@ -206,7 +203,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1440", 20, 20, 45);
             }
             catch
@@ -220,7 +216,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1540", 20, 20, 45);
             }
             catch
@@ -234,7 +229,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1840",20,20,45);
             }
             catch

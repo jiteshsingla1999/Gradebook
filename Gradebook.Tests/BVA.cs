@@ -13,14 +13,24 @@ namespace Gradebook.Tests
     /// Hence, using this technique, 25 (6*4 + 1) test cases have been added
     /// </summary>
     [TestFixture]
+    [Category("Boundary Value Testing")]
     public class BVA_Tests
     {
+        private Book testbook;
+
+
+        [SetUp]
+        public void Setup()
+        {
+            testbook = new Book();
+        }
+
+
         [Test]
         public void Test_RollNoMinminus()
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1499", 20, 20, 45);
             }
             catch
@@ -34,7 +44,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1500", 20, 20, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 85.00;
@@ -51,7 +60,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1501", 20, 20, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 85.00;
@@ -68,7 +76,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1699", 20, 20, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 85.00;
@@ -85,7 +92,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1700", 20, 20, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 85.00;
@@ -102,7 +108,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1701", 20, 20, 45);
             }
             catch
@@ -116,7 +121,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", -1, 20, 45);
             }
             catch
@@ -130,7 +134,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 0, 20, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 65.00;
@@ -147,7 +150,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 1, 20, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 66.00;
@@ -164,7 +166,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 24, 20, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 89.00;
@@ -181,7 +182,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 25, 20, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 90.00;
@@ -198,7 +198,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 26, 20, 45);
             }
             catch
@@ -212,7 +211,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, -1, 45);
             }
             catch
@@ -226,7 +224,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 0, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 65.00;
@@ -243,7 +240,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 1, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 66.00;
@@ -260,7 +256,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 24, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 89.00;
@@ -277,7 +272,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 25, 45);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 90.00;
@@ -294,7 +288,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 26, 45);
             }
             catch
@@ -308,7 +301,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20,-1);
             }
             catch
@@ -322,7 +314,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20,0);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 40.00;
@@ -339,7 +330,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20,1);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 41.00;
@@ -356,7 +346,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20,49);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 89.00;
@@ -373,7 +362,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20,50);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 90.00;
@@ -390,7 +378,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20,51);
             }
             catch
@@ -404,7 +391,6 @@ namespace Gradebook.Tests
         {
             try
             {
-                var testbook = new Book();
                 testbook.add("2017UCO1618", 20, 20,40);
                 double ActualSum = testbook.findSum();
                 double ExpectedSum = 80.00;

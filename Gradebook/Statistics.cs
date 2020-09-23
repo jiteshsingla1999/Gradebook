@@ -26,7 +26,7 @@ namespace Gradebook
         /// <summary>
         /// Name of student with highest marks
         /// </summary>
-        public string pos1_student { get; set; }
+        public List<string> pos1_student { get; set; }
 
         /// <summary>
         /// Constructor
@@ -36,6 +36,7 @@ namespace Gradebook
             avg = 0;
             highval = 0;
             lowval = 0;
+            pos1_student = new List<string>();
         }
 
     }

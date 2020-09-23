@@ -1,6 +1,8 @@
 ﻿using Gradebook;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+
 namespace GradeBook
 {
     public class Book
@@ -28,17 +30,17 @@ namespace GradeBook
         {
             gradeGuide =new Dictionary<int, string>();
             
-            gradeGuide.Add(10, "Outstanding");
-            gradeGuide.Add(9, "Exceeds Expectation");
-            gradeGuide.Add(8, "Acceptable");
-            gradeGuide.Add(7, "Acceptable");
-            gradeGuide.Add(6, "Poor");
-            gradeGuide.Add(5, "Poor");
-            gradeGuide.Add(4, "Dreadful");
-            gradeGuide.Add(3, "Troll");
-            gradeGuide.Add(2, "Troll");
-            gradeGuide.Add(1, "Troll");
-            gradeGuide.Add(0, "Troll");
+            gradeGuide.Add(10, "O");
+            gradeGuide.Add(9, "A+");
+            gradeGuide.Add(8, "A");
+            gradeGuide.Add(7, "B+");
+            gradeGuide.Add(6, "B");
+            gradeGuide.Add(5, "C");
+            gradeGuide.Add(4, "D");
+            gradeGuide.Add(3, "F");
+            gradeGuide.Add(2, "F");
+            gradeGuide.Add(1, "F");
+            gradeGuide.Add(0, "F");
         }
         /// <summary>
         /// Stats variable to store statistical information
@@ -83,8 +85,16 @@ namespace GradeBook
                 throw new Exception("Wrong Range of Roll Number for Computer Science Students");
             
             Marks score = new Marks(internalAssmt, midAssmt, endAssmt);
-            if (Math.Round(score.getaggregatemarks()) > findMax())
-                stats.pos1_student = studentID;
+            double aggregate = Math.Round(score.getaggregatemarks());
+            double curmaxval = findMax();
+            if (aggregate > curmaxval)
+            {
+                if(stats.pos1_student.Any())
+                    stats.pos1_student.Clear();
+                stats.pos1_student.Add(studentID);
+            }
+            else if(aggregate == curmaxval)
+                stats.pos1_student.Add(studentID);
             grades.Add(new KeyValuePair<string, Marks>(studentID, score));
             count += 1;
             updateStats();
@@ -184,13 +194,17 @@ namespace GradeBook
             Console.Write($"Lowest marks in class:".PadRight(30));
             Console.WriteLine($"{stats.lowval}".PadRight(20));
             Console.Write($"Class Topper:".PadRight(30));
-            Console.WriteLine($"{stats.pos1_student}".PadRight(20));
-
+            foreach (var i in stats.pos1_student)
+            {
+                Console.Write(value: $"{i}".PadRight(15));
+            }
+            Console.WriteLine();
             return;
         }
 
         public void DisplayGrads()
         {
+            Console.WriteLine();
             Console.Write($"Student ID".PadRight(30));
             Console.Write($"Total Marks".PadRight(30));
             Console.WriteLine($"Grade".PadRight(20));

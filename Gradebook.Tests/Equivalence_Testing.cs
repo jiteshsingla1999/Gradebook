@@ -76,22 +76,6 @@ namespace Gradebook.Tests
         }
 
         [Test]
-        public void Test_MidseminRange()
-        {
-            try
-            {
-                testbook.add("2017UCO1618", 20, 20, 45);
-                double ActualSum = testbook.findSum();
-                double ExpectedSum = 85.00;
-                Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
-            }
-            catch
-            {
-                Assert.Pass("Invalid Midsem Marks");
-            }
-        }
-
-        [Test]
         public void Test_MidsemPlus()
         {
             try
@@ -110,22 +94,6 @@ namespace Gradebook.Tests
             try
             {
                 testbook.add("2017UCO1618", 20, 20, -20);
-            }
-            catch
-            {
-                Assert.Pass("Invalid Endsem Marks");
-            }
-        }
-
-        [Test]
-        public void Test_EndseminRange()
-        {
-            try
-            {
-                testbook.add("2017UCO1618", 20, 20, 45);
-                double ActualSum = testbook.findSum();
-                double ExpectedSum = 85.00;
-                Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
             catch
             {
@@ -204,19 +172,6 @@ namespace Gradebook.Tests
             try
             {
                 testbook.add("2017UCO1440", 20, 20, 45);
-            }
-            catch
-            {
-                Assert.Pass("Invalid Roll Number");
-            }
-        }
-
-        [Test]
-        public void Test_RollNuminRange()
-        {
-            try
-            {
-                testbook.add("2017UCO1540", 20, 20, 45);
             }
             catch
             {

@@ -1,0 +1,1 @@
+{"TestProjects":["Gradebook.Tests"],"IgnoredProjects":[],"ProjectMappings":[{"ProjectName":"Gradebook","TestProjectNames":["Gradebook.Tests"]}],"Filter":{"FilterItems":[]},"NumberOfTestRunInstances":4,"MaxTestTimeMin":5,"TestRunner":"DotNet","Mutators":["ConditionalBoundary","Math","ReturnValue"],"CreateBaseline":true}

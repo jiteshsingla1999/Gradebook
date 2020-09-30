@@ -29,15 +29,15 @@ namespace Gradebook
         public Marks(int a=0, int b=0, int c=0)
         {
             if (c > 50 || c < 0) 
-                throw new Exception("Marks for End Semester Assessment can be between [0, 50] only");
+                throw new ArgumentException("Marks for End Semester Assessment can be between [0, 50] only");
             this.endSemester = c;
 
             if (a > 25 || a < 0)
-                throw new Exception("Marks for Internal Assessment can be between [0, 25] only");
+                throw new ArgumentException("Marks for Internal Assessment can be between [0, 25] only");
             this.internalAssessment = a;
 
             if (b > 25 || b < 0)
-                throw new Exception("Marks for Mid Semester Assessment can be between [0, 25] only");
+                throw new ArgumentException("Marks for Mid Semester Assessment can be between [0, 25] only");
             this.midSemester = b;            
         }
 
@@ -50,7 +50,7 @@ namespace Gradebook
         public double getaggregatemarks()
         {
             if (internalAssessment + midSemester + endSemester > 100)
-                throw new Exception("Invalid Marks");
+                throw new ArgumentException("Invalid Marks");
 
             return internalAssessment + midSemester + endSemester;
         }

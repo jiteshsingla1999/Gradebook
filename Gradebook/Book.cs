@@ -15,7 +15,7 @@ namespace GradeBook
         /// <summary>
         /// Key Value Pair<Student Name, Score> </Student>
         /// </summary>
-        private List<KeyValuePair<string, Marks> > grades { get; set; }
+        private List<KeyValuePair<string, Marks>> grades { get; set; }
 
         /// <summary>
         /// Number of students in the class
@@ -28,8 +28,8 @@ namespace GradeBook
         public static Dictionary<int, string> gradeGuide { get; set; }
         public static void createDict()
         {
-            gradeGuide =new Dictionary<int, string>();
-            
+            gradeGuide = new Dictionary<int, string>();
+
             gradeGuide.Add(10, "O");
             gradeGuide.Add(9, "A+");
             gradeGuide.Add(8, "A");
@@ -65,36 +65,44 @@ namespace GradeBook
         /// </summary>
         /// <param name="studentName"></param>
         /// <param name="score"></param>
-        public void add(string studentID, int internalAssmt=0, int midAssmt=0, int endAssmt=0 )
+        public void add(string studentID, int internalAssmt = 0, int midAssmt = 0, int endAssmt = 0)
         {
             ///Integrity check for Student ID
-            if(studentID.Length !=11)
-                throw new Exception("Please enter a valid Student ID");
+            if (studentID.Length != 11)
+                throw new ArgumentException("Please enter a valid Student ID");
+
             string year = studentID.Substring(0, 4);
             int val = Int16.Parse(year);
-            if(val!=2017)
-                throw new Exception("Course only for 4th Years");
-            if(studentID[4]!='U')
-                throw new Exception("Course only for Undergraduate");
-            string branch = studentID.Substring(5,2);
-            if(branch!="CO")
-                throw new Exception("Course only for Computer Science Students");
-            string rollnum = studentID.Substring(7,4);
-            val= Int16.Parse(rollnum);
-            if(val<1500 || val>1700)
-                throw new Exception("Wrong Range of Roll Number for Computer Science Students");
-            
+            if (val != 2017)
+                throw new ArgumentException("Course only for 4th Years");
+
+            if (studentID[4] != 'U')
+                throw new ArgumentException("Course only for Undergraduate");
+
+            string branch = studentID.Substring(5, 2);
+
+            if (branch != "CO")
+                throw new ArgumentException("Course only for Computer Science Students");
+
+            string rollnum = studentID.Substring(7, 4);
+            val = Int16.Parse(rollnum);
+
+            if (val < 1500 || val > 1700)
+                throw new ArgumentException("Wrong Range of Roll Number for Computer Science Students");
+
             Marks score = new Marks(internalAssmt, midAssmt, endAssmt);
             double aggregate = Math.Round(score.getaggregatemarks());
             double curmaxval = findMax();
+
             if (aggregate > curmaxval)
             {
-                if(stats.pos1_student.Any())
+                if (stats.pos1_student.Any())
                     stats.pos1_student.Clear();
                 stats.pos1_student.Add(studentID);
             }
-            else if(aggregate == curmaxval)
+            else if (aggregate == curmaxval)
                 stats.pos1_student.Add(studentID);
+
             grades.Add(new KeyValuePair<string, Marks>(studentID, score));
             count += 1;
             updateStats();
@@ -133,7 +141,7 @@ namespace GradeBook
         {
             double minn = 101;
 
-            foreach(var i in grades)
+            foreach (var i in grades)
             {
                 minn = Math.Min(minn, i.Value.getaggregatemarks());
             }
@@ -167,7 +175,7 @@ namespace GradeBook
                 Console.WriteLine("Record List is empty");
                 return;
             }
-                    
+
             stats.avg = findAVG();
             stats.highval = findMax();
             stats.lowval = findMin();
@@ -208,14 +216,14 @@ namespace GradeBook
             Console.Write($"Student ID".PadRight(30));
             Console.Write($"Total Marks".PadRight(30));
             Console.WriteLine($"Grade".PadRight(20));
-            
-            foreach(var i in grades)
+
+            foreach (var i in grades)
             {
                 Console.Write($"{i.Key}".PadRight(30));
                 Console.Write($"{i.Value.getaggregatemarks()}".PadRight(30));
                 Console.WriteLine($"{i.Value.getGrade()}".PadRight(20));
             }
         }
-        
+
     }
 }

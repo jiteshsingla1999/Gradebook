@@ -33,7 +33,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1499", 20, 20, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Roll Number");
             }
@@ -49,7 +49,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 85.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Roll Number");
             }
@@ -65,7 +65,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 85.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Roll Number");
             }
@@ -81,7 +81,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 85.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Roll Number");
             }
@@ -97,7 +97,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 85.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Roll Number");
             }
@@ -110,7 +110,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1701", 20, 20, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Roll Number");
             }
@@ -123,7 +123,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", -1, 20, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Internal Marks");
             }
@@ -139,7 +139,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 65.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Internal Marks");
             }
@@ -155,7 +155,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 66.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Internal Marks");
             }
@@ -171,7 +171,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 89.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Internal Marks");
             }
@@ -187,7 +187,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 90.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Internal Marks");
             }
@@ -200,7 +200,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", 26, 20, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Internal Marks");
             }
@@ -213,7 +213,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", 20, -1, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Midsem Marks");
             }
@@ -229,7 +229,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 65.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Midsem Marks");
             }
@@ -245,7 +245,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 66.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Midsem Marks");
             }
@@ -261,7 +261,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 89.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Midsem Marks");
             }
@@ -277,7 +277,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 90.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Midsem Marks");
             }
@@ -290,7 +290,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", 20, 26, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Midsem Marks");
             }
@@ -303,7 +303,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", 20, 20,-1);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Endsem Marks");
             }
@@ -319,7 +319,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 40.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Endsem Marks");
             }
@@ -335,7 +335,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 41.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Endsem Marks");
             }
@@ -351,7 +351,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 89.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Endsem Marks");
             }
@@ -367,7 +367,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 90.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Endsem Marks");
             }
@@ -380,7 +380,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", 20, 20,51);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Endsem Marks");
             }
@@ -396,7 +396,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 80.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass();
             }

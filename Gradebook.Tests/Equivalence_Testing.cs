@@ -27,7 +27,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", -2, 20, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Internal Marks");
             }
@@ -43,7 +43,7 @@ namespace Gradebook.Tests
                 double ExpectedSum = 85.00;
                 Assert.AreEqual(ExpectedSum, ActualSum, 0.01);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Internal Marks");
             }
@@ -56,7 +56,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", 30, 20, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Internal Marks");
             }
@@ -69,7 +69,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", 20, -10, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Midsem Marks");
             }
@@ -82,7 +82,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", 20, 30, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Midsem Marks");
             }
@@ -95,7 +95,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", 20, 20, -20);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Endsem Marks");
             }
@@ -108,7 +108,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1618", 20, 20, 65);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Endsem Marks");
             }
@@ -121,7 +121,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("201UCO1618", 20, 20, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Length of StudentID");
             }
@@ -134,7 +134,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2012UCO1618", 20, 20, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Year in the StudentID");
             }
@@ -147,7 +147,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017PCO1618", 20, 20, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Degree in Student ID");
             }
@@ -160,7 +160,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UBT1618", 20, 20, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Branch");
             }
@@ -173,7 +173,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1440", 20, 20, 45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Roll Number");
             }
@@ -186,7 +186,7 @@ namespace Gradebook.Tests
             {
                 testbook.add("2017UCO1840",20,20,45);
             }
-            catch
+            catch (ArgumentException e)
             {
                 Assert.Pass("Invalid Roll Number");
             }

@@ -8,17 +8,17 @@ namespace Gradebook
         /// <summary>
         /// Marks obtained from the internal Assessment [0,25]
         /// </summary>
-        double internalAssessment;
+        public double internalAssessment;
 
         /// <summary>
         /// Marks obtained from the Mid Semester Assessment [0,25]
         /// </summary>
-        double midSemester;
+        public double midSemester;
 
         /// <summary>
         /// Marks obtained from the End Semester Assessment [0,50]
         /// </summary>
-        double endSemester;
+        public double endSemester;
 
         /// <summary>
         /// Constructor
@@ -40,11 +40,11 @@ namespace Gradebook
                 throw new ArgumentException("Marks for Mid Semester Assessment can be between [0, 25] only");
             this.midSemester = b;
 
-            if (a + b + c < 0 || a + b + c > 100)
+            if (a + b + c < 0 )
                 throw new ArgumentException("Sum of the Marks can be between [0, 100] only");
         }
 
-        
+
 
         /// <summary>
         /// Function to get aggregate marks out of 100
@@ -66,7 +66,13 @@ namespace Gradebook
             int num = (int)(this.getaggregatemarks()) / 10;
             if(num<0 || num>10)
                 throw new ArgumentException("Invalid Grade Point");
-            return Book.gradeGuide[num];
+            return Book1.gradeGuide[num];
+        }
+
+
+        public string classInfo()
+        {
+            return "This is Marks without Practical";
         }
     }
 }

@@ -11,13 +11,13 @@ namespace Gradebook.Tests
     [Category("Equivalence Paritition Testing")]
     public class Equivalence_Partitioning_Tests
     {
-        private Book testbook;
+        private Book1 testbook;
 
         [SetUp]
         public void Setup()
         {
             // Runs before each test executes
-            testbook = new Book();
+            testbook = new Book1();
         }
 
         [Test]
@@ -45,7 +45,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Internal Marks");
+                Assert.Fail("Invalid Internal Marks");
             }
         }
 

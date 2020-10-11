@@ -38,7 +38,10 @@ namespace Gradebook
 
             if (b > 25 || b < 0)
                 throw new ArgumentException("Marks for Mid Semester Assessment can be between [0, 25] only");
-            this.midSemester = b;            
+            this.midSemester = b;
+
+            if (a + b + c < 0 || a + b + c > 100)
+                throw new ArgumentException("Sum of the Marks can be between [0, 100] only");
         }
 
         
@@ -49,10 +52,10 @@ namespace Gradebook
         /// <returns></returns>
         public double getaggregatemarks()
         {
-            if (internalAssessment + midSemester + endSemester > 100)
+           double sum = internalAssessment + midSemester + endSemester;
+            if (sum > 100 || sum < 0)
                 throw new ArgumentException("Invalid Marks");
-
-            return internalAssessment + midSemester + endSemester;
+            return (internalAssessment + midSemester + endSemester);
         }
         /// <summary>
         /// Function to return grade
@@ -60,7 +63,10 @@ namespace Gradebook
         /// <returns></returns>
         public string getGrade()
         {
-            return Book.gradeGuide[(int)(this.getaggregatemarks()) / 10];
+            int num = (int)(this.getaggregatemarks()) / 10;
+            if(num<0 || num>10)
+                throw new ArgumentException("Invalid Grade Point");
+            return Book.gradeGuide[num];
         }
     }
 }

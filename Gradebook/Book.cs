@@ -130,7 +130,7 @@ namespace GradeBook
         /// <returns></returns>
         public double findAVG()
         {
-            return Math.Round(findSum() / count, 2);
+            return Math.Round(findSum()/count, 2);
         }
 
         /// <summary>

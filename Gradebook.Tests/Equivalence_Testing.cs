@@ -45,7 +45,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Internal Marks");
+                Assert.Fail("Invalid Internal Marks");
             }
         }
 

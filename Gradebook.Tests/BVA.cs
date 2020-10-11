@@ -51,7 +51,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Roll Number");
+                Assert.Fail("Invalid Roll Number");
             }
         }
 
@@ -67,7 +67,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Roll Number");
+                Assert.Fail("Invalid Roll Number");
             }
         }
 
@@ -83,7 +83,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Roll Number");
+                Assert.Fail("Invalid Roll Number");
             }
         }
 
@@ -99,7 +99,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Roll Number");
+                Assert.Fail("Invalid Roll Number");
             }
         }
 
@@ -141,7 +141,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Internal Marks");
+                Assert.Fail("Invalid Internal Marks");
             }
         }
 
@@ -157,7 +157,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Internal Marks");
+                Assert.Fail("Invalid Internal Marks");
             }
         }
 
@@ -173,7 +173,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Internal Marks");
+                Assert.Fail("Invalid Internal Marks");
             }
         }
 
@@ -189,7 +189,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Internal Marks");
+                Assert.Fail("Invalid Internal Marks");
             }
         }
 
@@ -231,7 +231,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Midsem Marks");
+                Assert.Fail("Invalid Midsem Marks");
             }
         }
 
@@ -247,7 +247,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Midsem Marks");
+                Assert.Fail("Invalid Midsem Marks");
             }
         }
 
@@ -263,7 +263,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Midsem Marks");
+                Assert.Fail("Invalid Midsem Marks");
             }
         }
 
@@ -279,7 +279,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Midsem Marks");
+                Assert.Fail("Invalid Midsem Marks");
             }
         }
 
@@ -321,7 +321,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Endsem Marks");
+                Assert.Fail("Invalid Endsem Marks");
             }
         }
 
@@ -337,7 +337,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Endsem Marks");
+                Assert.Fail("Invalid Endsem Marks");
             }
         }
 
@@ -353,7 +353,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Endsem Marks");
+                Assert.Fail("Invalid Endsem Marks");
             }
         }
 
@@ -369,7 +369,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass("Invalid Endsem Marks");
+                Assert.Fail("Invalid Endsem Marks");
             }
         }
 
@@ -398,7 +398,7 @@ namespace Gradebook.Tests
             }
             catch (ArgumentException e)
             {
-                Assert.Pass();
+                Assert.Fail();
             }
         }
     }

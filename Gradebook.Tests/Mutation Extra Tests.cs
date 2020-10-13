@@ -8,12 +8,12 @@ namespace Gradebook.Tests
     [Category("Mutation testing Extra Tests")]
     public class Extra_Tests
     {
-        private Book testbook;
+        private Book1 testbook;
         private Marks testmarks; 
         [SetUp]
         public void Setup()
         {
-            testbook = new Book();
+            testbook = new Book1();
         }
 
         [Test]

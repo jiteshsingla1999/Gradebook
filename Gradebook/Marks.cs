@@ -66,7 +66,7 @@ namespace Gradebook
             int num = (int)(this.getaggregatemarks()) / 10;
             if(num<0 || num>10)
                 throw new ArgumentException("Invalid Grade Point");
-            return Book.gradeGuide[num];
+            return Book1.gradeGuide[num];
         }
     }
 }

@@ -16,13 +16,13 @@ namespace Gradebook.Tests
     [Category("Boundary Value Testing")]
     public class BVA_Tests
     {
-        private Book testbook;
+        private Book1 testbook;
 
 
         [SetUp]
         public void Setup()
         {
-            testbook = new Book();
+            testbook = new Book1();
         }
 
 

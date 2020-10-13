@@ -2,31 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 
 namespace GradeBook
 {
-    public class Book
+    public class Book1 : CourseStructure
     {
-        /// <summary>
-        /// Name of the Course
-        /// </summary>
-        private string CourseName { get; set; }
-
-        /// <summary>
-        /// Key Value Pair<Student Name, Score> </Student>
-        /// </summary>
-        private List<KeyValuePair<string, Marks>> grades { get; set; }
-
-        /// <summary>
-        /// Number of students in the class
-        /// </summary>
-        public int count { get; set; }
-
-        /// <summary>
-        /// Laying down the Grade Scheme for the Course
-        /// </summary>
-        public static Dictionary<int, string> gradeGuide { get; set; }
-        public static void createDict()
+        public static void createDictBook1()
         {
             gradeGuide = new Dictionary<int, string>();
 
@@ -51,13 +33,13 @@ namespace GradeBook
         /// Constructor
         /// </summary>
         /// <param name="name"></param>
-        public Book(string name = "SampleCourse")
+        public Book1(string name = "Software Testing")
         {
             this.CourseName = name;
             grades = new List<KeyValuePair<string, Marks>>();
             count = 0;
             stats = new Statistics();
-            createDict();
+            createDictBook1();
         }
 
         /// <summary>
@@ -110,62 +92,6 @@ namespace GradeBook
         }
 
         /// <summary>
-        /// Function to find sum of marks in the list
-        /// </summary>
-        /// <returns></returns>
-        public double findSum()
-        {
-            double sum = 0;
-            foreach (var i in grades)
-            {
-                sum += i.Value.getaggregatemarks();
-            }
-
-            return sum;
-        }
-
-        /// <summary>
-        /// Function to find average marks in the list
-        /// </summary>
-        /// <returns></returns>
-        public double findAVG()
-        {
-            return Math.Round(findSum()/count, 2);
-        }
-
-        /// <summary>
-        /// Function to find minimum marks in the list
-        /// </summary>
-        /// <returns></returns>
-        public double findMin()
-        {
-            double minn = 101;
-
-            foreach (var i in grades)
-            {
-                minn = Math.Min(minn, i.Value.getaggregatemarks());
-            }
-
-            return minn;
-        }
-
-        /// <summary>
-        /// Function to find maximum marks in the list
-        /// </summary>
-        /// <returns></returns>
-        public double findMax()
-        {
-            double maxx = -1;
-
-            foreach (var i in grades)
-            {
-                maxx = Math.Max(maxx, i.Value.getaggregatemarks());
-            }
-
-            return maxx;
-        }
-
-        /// <summary>
         /// Function to update the statistics 
         /// </summary>
         public void updateStats()
@@ -179,6 +105,19 @@ namespace GradeBook
             stats.avg = findAVG();
             stats.highval = findMax();
             stats.lowval = findMin();
+        }
+        
+        /// <summary>
+        /// Function to return Current Course Name
+        /// </summary>
+        public string getCourseName()
+        {
+            return this.CourseName;
+        }
+
+        public string getParentCourseName()
+        {
+            return base.getCourseName();
         }
 
         /// <summary>
@@ -224,6 +163,5 @@ namespace GradeBook
                 Console.WriteLine($"{i.Value.getGrade()}".PadRight(20));
             }
         }
-
     }
 }

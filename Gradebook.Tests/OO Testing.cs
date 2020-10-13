@@ -8,13 +8,13 @@ namespace Gradebook.Tests
     [Category("Object Oriented Tests")]
     public class OO_Testing
     {
-        private Book testbook;
+        private Book1 testbook1;
         private Marks testmarks;
         [SetUp]
         public void Setup()
         {
             // Runs before each test executes
-            testbook = new Book();
+            testbook1 = new Book1();
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Gradebook.Tests
         {
             try
             {
-                testbook.add("2017UCO1583",20,20,40);
+                testbook1.add("2017UCO1583",20,20,40);
                 Assert.Pass("Valid Values");
             }
             catch (ArgumentException e)
@@ -73,7 +73,7 @@ namespace Gradebook.Tests
         {
             try
             {
-                testbook.add("2017UCO1500",-2, 20, 40);
+                testbook1.add("2017UCO1500",-2, 20, 40);
                 Assert.Fail("Invalid Values");
             }
             catch (ArgumentException e)
@@ -87,7 +87,7 @@ namespace Gradebook.Tests
         {
             try
             {
-                testbook.add("2017UBT1001", 20, 20, 40);
+                testbook1.add("2017UBT1001", 20, 20, 40);
                 Assert.Fail("Invalid Values");
             }
             catch (ArgumentException e)
@@ -101,11 +101,11 @@ namespace Gradebook.Tests
         {
             try
             {
-                testbook.add("2017UCO1501", 20, 20, 40);
-                testbook.add("2017UCO1502", 10, 20, 35);
-                testbook.add("2017UCO1503", 23, 24, 45);
-                testbook.add("2017UCO1504", 20, 20, 20);
-                double actualsum = testbook.findSum();
+                testbook1.add("2017UCO1501", 20, 20, 40);
+                testbook1.add("2017UCO1502", 10, 20, 35);
+                testbook1.add("2017UCO1503", 23, 24, 45);
+                testbook1.add("2017UCO1504", 20, 20, 20);
+                double actualsum = testbook1.findSum();
                 double expectedsum = 297.00;
                 Assert.AreEqual(expectedsum, actualsum, 0.01);
             }
@@ -120,10 +120,10 @@ namespace Gradebook.Tests
         {
             try
             {
-                testbook.add("2017UCO1618", 25, 25, 50);
-                testbook.add("2017UCO1583", 25, 24, 50);
-                testbook.add("2017UCO1585", 24, 24, 50);
-                double actualAVG = testbook.findAVG();
+                testbook1.add("2017UCO1618", 25, 25, 50);
+                testbook1.add("2017UCO1583", 25, 24, 50);
+                testbook1.add("2017UCO1585", 24, 24, 50);
+                double actualAVG = testbook1.findAVG();
                 double expectedAVG = Math.Round((100.00 + 99 + 98) / 3, 2);
                 Assert.AreEqual(expectedAVG, actualAVG, 0.01);
             }
@@ -139,10 +139,10 @@ namespace Gradebook.Tests
         {
             try
             {
-                testbook.add("2017UCO1618", 25, 25, 50);
-                testbook.add("2017UCO1583", 25, 18, 50);
-                testbook.add("2017UCO1585", 14, 24, 50);
-                double actualMIN = testbook.findMin();
+                testbook1.add("2017UCO1618", 25, 25, 50);
+                testbook1.add("2017UCO1583", 25, 18, 50);
+                testbook1.add("2017UCO1585", 14, 24, 50);
+                double actualMIN = testbook1.findMin();
                 double expectedMIN = 88.00;
                 Assert.AreEqual(expectedMIN, actualMIN, 0.01);
             }
@@ -157,12 +157,42 @@ namespace Gradebook.Tests
         {
             try
             {
-                testbook.add("2017UCO1618", 25, 25, 50);
-                testbook.add("2017UCO1583", 25, 18, 50);
-                testbook.add("2017UCO1585", 14, 24, 50);
-                double actualMIN = testbook.findMax();
+                testbook1.add("2017UCO1618", 25, 25, 50);
+                testbook1.add("2017UCO1583", 25, 18, 50);
+                testbook1.add("2017UCO1585", 14, 24, 50);
+                double actualMIN = testbook1.findMax();
                 double expectedMIN = 100.00;
                 Assert.AreEqual(expectedMIN, actualMIN, 0.01);
+            }
+            catch (ArgumentException e)
+            {
+                Assert.Fail("Something Went Wrong");
+            }
+        }
+
+        [Test]
+        public void Test_CourseNameChild()
+        {
+            try
+            {
+                string actualName = testbook1.getCourseName();
+                string expectedName = "Software Testing";
+                Assert.AreEqual(expectedName, actualName);
+            }
+            catch (ArgumentException e)
+            {
+                Assert.Fail("Something Went Wrong");
+            }
+        }
+
+        [Test]
+        public void Test_CourseNameParent()
+        {
+            try
+            {
+                string actualName = testbook1.getParentCourseName();
+                string expectedName = "This is the Base Course";
+                Assert.AreEqual(expectedName, actualName);
             }
             catch (ArgumentException e)
             {

@@ -10,6 +10,7 @@ namespace Gradebook.Tests
     {
         private Book1 testbook1;
         private Marks testmarks;
+        private Statistics teststats;
         [SetUp]
         public void Setup()
         {
@@ -171,34 +172,38 @@ namespace Gradebook.Tests
         }
 
         [Test]
-        public void Test_CourseNameChild()
+        public void Test_UpdateStats()
         {
             try
             {
-                string actualName = testbook1.getCourseName();
-                string expectedName = "Software Testing";
-                Assert.AreEqual(expectedName, actualName);
+                testbook1.add("2017UCO1585", 14, 24, 49);
+                teststats = testbook1.stats;
+                double actualavg = teststats.avg;
+                double expectedavg = 87.00;
+                Assert.AreEqual(expectedavg, actualavg);
+                double actualmin = teststats.lowval;
+                double expectedmin = 87.00;
+                Assert.AreEqual(expectedmin, actualmin);
+                double actualmax = teststats.highval;
+                double expectedmax = 87.00;
+                Assert.AreEqual(expectedmax, actualmax);
+
+                testbook1.add("2017UCO1618", 25, 25, 49);
+                teststats = testbook1.stats;
+                actualavg = teststats.avg;
+                expectedavg = 93.00;
+                Assert.AreEqual(expectedavg, actualavg);
+                actualmin = teststats.lowval;
+                expectedmin = 87.00;
+                Assert.AreEqual(expectedmin, actualmin);
+                actualmax = teststats.highval;
+                expectedmax = 99.00;
+                Assert.AreEqual(expectedmax, actualmax);
             }
             catch (ArgumentException e)
             {
                 Assert.Fail("Something Went Wrong");
             }
         }
-
-        [Test]
-        public void Test_CourseNameParent()
-        {
-            try
-            {
-                string actualName = testbook1.getParentCourseName();
-                string expectedName = "This is the Base Course";
-                Assert.AreEqual(expectedName, actualName);
-            }
-            catch (ArgumentException e)
-            {
-                Assert.Fail("Something Went Wrong");
-            }
-        }
-
     }
 }

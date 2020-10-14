@@ -9,11 +9,18 @@ namespace Gradebook.Tests
     public class OO_Inheritance_testing
     {
         private Book1 testbook1;
+        private Book2 testbook2;
+
+        Marks testmarks1;
+        PracticalMarks testmarks2;
+
         [SetUp]
         public void Setup()
         {
             // Runs before each test executes
             testbook1 = new Book1();
+            testbook2 = new Book2();
+
         }
 
         [Test]

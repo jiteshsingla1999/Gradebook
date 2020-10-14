@@ -8,17 +8,17 @@ namespace Gradebook
         /// <summary>
         /// Marks obtained from the internal Assessment [0,25]
         /// </summary>
-        double internalAssessment;
+        public double internalAssessment;
 
         /// <summary>
         /// Marks obtained from the Mid Semester Assessment [0,25]
         /// </summary>
-        double midSemester;
+        public double midSemester;
 
         /// <summary>
         /// Marks obtained from the End Semester Assessment [0,50]
         /// </summary>
-        double endSemester;
+        public double endSemester;
 
         /// <summary>
         /// Constructor

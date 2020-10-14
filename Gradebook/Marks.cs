@@ -68,5 +68,11 @@ namespace Gradebook
                 throw new ArgumentException("Invalid Grade Point");
             return Book1.gradeGuide[num];
         }
+
+
+        public string classInfo()
+        {
+            return "This is Marks without Practical";
+        }
     }
 }

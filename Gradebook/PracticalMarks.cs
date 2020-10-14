@@ -60,5 +60,10 @@ namespace Gradebook
             return gradeGuide[num];
         }
 
+        public string classInfo()
+        {
+            return "This is Marks with Practical";
+        }
+
     }
 }

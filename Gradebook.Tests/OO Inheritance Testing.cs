@@ -21,6 +21,7 @@ namespace Gradebook.Tests
             testbook1 = new Book1();
             testbook2 = new Book2();
 
+
         }
 
         [Test]
@@ -52,5 +53,38 @@ namespace Gradebook.Tests
                 Assert.Fail("Something Went Wrong");
             }
         }
+
+
+        public void Test_Marks_with_Prac()
+        {
+            try
+            {
+                testmarks2 = new PracticalMarks();
+                string actualName = testmarks2.classInfo();
+                string expectedName = "This is Marks with Practical";
+                Assert.AreEqual(expectedName, actualName);
+            }
+            catch (ArgumentException e)
+            {
+                Assert.Fail("Something Went Wrong");
+            }
+        }
+
+        [Test]
+        public void Test_Marks_without_Prac()
+        {
+            try
+            {
+                testmarks1 = new Marks();
+                string actualName = testmarks1.classInfo();
+                string expectedName = "This is Marks without Practical";
+                Assert.AreEqual(expectedName, actualName);
+            }
+            catch (ArgumentException e)
+            {
+                Assert.Fail("Something Went Wrong");
+            }
+        }
+
     }
 }
